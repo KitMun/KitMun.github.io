@@ -6,10 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CityFM Code Test</title>
 
-    // import jquery
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    // dataTable 1.13.6
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     
@@ -17,8 +15,7 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
-        <p>This is my new website which is hosted on GitHub Pages!</p>
-        <p>added datatable and dummy data</p>
+        <p>set datatable columns</p>
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -37,6 +34,12 @@
 
       var table = $('#example').DataTable({
           pagingType: "full_numbers",
+          columns: [
+            { "name": "Price" },
+            { "name": "Product" },
+            { "name": "Desc" },
+            { "name": "Price" },
+          ],
           // "ajax": {
           //     "url": "",
           //     "type": "POST",
@@ -80,7 +83,10 @@
         table.draw();
       }
 
-      show_data(JSON.parse(data));
+      $( document ).ready(function() {
+        show_data(JSON.parse(json));
+      });
+
 
       </script>
   </body>
