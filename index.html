@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
+    <title>CityFM Code Test</title>
+
+    // import jquery
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script> 
+    console.log('js started');
+
+    $.ajax({
+      url: 'https://api.publicapis.org/entries',
+      method: 'GET',
+      success: function(response) {
+          console.log(response);
+          const parsedData = JSON.parse(response);
+          console.log(parsedData);
+          // Process the parsed data here
+      },
+      error: function(xhr, status, error) {
+          // Handle any errors
+      }
+    });
+    </script>
   </head>
   <body>
     <main>
