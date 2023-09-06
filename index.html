@@ -15,7 +15,7 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
-        <p>fix json format</p>
+        <p>fix columns data</p>
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -35,10 +35,10 @@
       var table = $('#example').DataTable({
           pagingType: "full_numbers",
           columns: [
-            { "name": "Price" },
-            { "name": "Product" },
-            { "name": "Desc" },
-            { "name": "Price" },
+            { "data": "Price" },
+            { "data": "Product" },
+            { "data": "Desc" },
+            { "data": "Price" },
           ],
           // "ajax": {
           //     "url": "",
