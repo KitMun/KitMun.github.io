@@ -14,8 +14,7 @@
   </head>
   <body>
     <main>
-        <h1>Welcome to My Website</h1>  
-        <p>added No for rows</p>
+        <h1 style="text-align:center;">Products</h1>  
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -33,19 +32,12 @@
       var table = $('#example').DataTable({
           pagingType: "full_numbers",
           columns: [
-            { "data": "Price" },
+            { "data": "No" },
             { "data": "Product" },
             { "data": "Desc" },
             { "data": "Price" },
           ],
           columnDefs: [{
-              "targets": 0,
-              "data": "Price",
-              "render": function ( data, type, row, meta ) {
-                return row.No ?? data;
-                }
-            },
-            {
               "targets": 3,
               "data": "Price",
               "render": function ( data, type, row, meta ) {
@@ -63,21 +55,21 @@
 
       var json = '[{"Product":"Product A","Desc":"Desc A","Price": 10},{"Product":"Product B","Desc":"Desc B","Price": 12},{"Product":"Product C","Desc":"Desc C","Price": 20}]';
       
-      function get_product()
-      {
-        $.ajax({
-          url: 'url',
-          method: 'GET',
-          success: function(response) {
-              const parsedData = JSON.parse(response);
-              show_data(parsedData);
-              // Process the parsed data here
-          },
-          error: function(xhr, status, error) {
-              show_data({});
-          }
-        });
-      }
+      // function get_product()
+      // {
+      //   $.ajax({
+      //     url: 'url',
+      //     method: 'GET',
+      //     success: function(response) {
+      //         const parsedData = JSON.parse(response);
+      //         show_data(parsedData);
+      //         // Process the parsed data here
+      //     },
+      //     error: function(xhr, status, error) {
+      //         show_data({});
+      //     }
+      //   });
+      // }
   
       var index;
       function show_data(data)
@@ -92,7 +84,6 @@
       $( document ).ready(function() {
         show_data(JSON.parse(json));
       });
-
 
       </script>
   </body>
