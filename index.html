@@ -15,7 +15,7 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
-        <p>set datatable columns</p>
+        <p>fix json format</p>
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -48,16 +48,7 @@
           // }
       });
 
-      var json = '{['+
-                    '{"Product":"Product A",'+
-                    '"Desc":"Desc A",'+
-                    '"Price": 10},'+
-                    '{"Product":"Product B",'+
-                    '"Desc":"Desc B",'+
-                    '"Price": 12},'+
-                    '{"Product":"Product C",'+
-                    '"Desc":"Desc C",'+
-                    '"Price": 20}]}';
+      var json = '[{"Product":"Product A","Desc":"Desc A","Price": 10},{"Product":"Product B","Desc":"Desc B","Price": 12},{"Product":"Product C","Desc":"Desc C","Price": 20}]';
       
       function get_product()
       {
