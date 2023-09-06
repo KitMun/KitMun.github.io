@@ -15,7 +15,7 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
-        <p>fix columns data</p>
+        <p>added 20% for price</p>
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -30,8 +30,6 @@
     </main>
 
     <script> 
-      console.log('js started');
-
       var table = $('#example').DataTable({
           pagingType: "full_numbers",
           columns: [
@@ -40,6 +38,14 @@
             { "data": "Desc" },
             { "data": "Price" },
           ],
+          columnDefs: [{
+            "targets": 3,
+            "data": "Price",
+            "render": function ( data, type, row, meta ) {
+              return Math.round(data * 1.2 * 100) / 100
+            }
+          }],
+
           // "ajax": {
           //     "url": "",
           //     "type": "POST",
