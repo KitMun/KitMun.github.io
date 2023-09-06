@@ -15,7 +15,7 @@
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
-        <p>added 20% for price</p>
+        <p>set 2 decimal for price</p>
 
         <table id="example" class="display" style="width:100%">
           <thead>
@@ -42,7 +42,7 @@
             "targets": 3,
             "data": "Price",
             "render": function ( data, type, row, meta ) {
-              return Math.round(data * 1.2 * 100) / 100
+              return (Math.round(data * 1.2 * 100) / 100).toFixed(2);
             }
           }],
 
