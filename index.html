@@ -9,29 +9,79 @@
     // import jquery
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <script> 
-    console.log('js started');
-
-    $.ajax({
-      url: 'https://api.publicapis.org/entries',
-      method: 'GET',
-      success: function(response) {
-          console.log(response);
-          const parsedData = JSON.parse(response);
-          console.log(parsedData);
-          // Process the parsed data here
-      },
-      error: function(xhr, status, error) {
-          // Handle any errors
-      }
-    });
-    </script>
+    // dataTable 1.13.6
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    
   </head>
   <body>
     <main>
         <h1>Welcome to My Website</h1>  
         <p>This is my new website which is hosted on GitHub Pages!</p>
         <p>added JS script</p>
+
+        <table id="example" class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>No</th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Price</th>
+              </tr>
+          </thead>
+      </table>
     </main>
+
+    <script> 
+      console.log('js started');
+
+      var table = $('#example').DataTable({
+          pagingType: "full_numbers",
+          // "ajax": {
+          //     "url": "",
+          //     "type": "POST",
+          //     // "data": filters,
+          //     "datatype": "json"
+          // }
+      });
+
+      var json = '{['+
+                    '{"Product":"Product A",'+
+                    '"Desc":"Desc A",'+
+                    '"Price": 10},'+
+                    '{"Product":"Product B",'+
+                    '"Desc":"Desc B",'+
+                    '"Price": 12},'+
+                    '{"Product":"Product C",'+
+                    '"Desc":"Desc C",'+
+                    '"Price": 20}]}';
+      
+      function get_product()
+      {
+        $.ajax({
+          url: 'url',
+          method: 'GET',
+          success: function(response) {
+              const parsedData = JSON.parse(response);
+              show_data(parsedData);
+              // Process the parsed data here
+          },
+          error: function(xhr, status, error) {
+              show_data({});
+          }
+        });
+      }
+  
+      function show_data(data)
+      {
+        console.log(data);
+        table.clear();
+        table.rows.add(data);
+        table.draw();
+      }
+
+      show_data(JSON.parse(data));
+
+      </script>
   </body>
 </html>
